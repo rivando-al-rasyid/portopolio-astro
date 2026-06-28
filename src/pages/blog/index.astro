@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BlogListPage } from '../../features/blog/BlogListPage';
+import { getPublishedBlogPosts } from '../../lib/contentService';
+
+const posts = await getPublishedBlogPosts();
+---
+
+<BaseLayout title="Blog" description="Posts about web development, portfolio systems, and product engineering.">
+  <BlogListPage posts={posts} client:load />
+</BaseLayout>

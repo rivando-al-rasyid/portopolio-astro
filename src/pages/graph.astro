@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { GraphPage } from '../features/graph/GraphPage';
+import { buildGraphData } from '../lib/graphBuilder';
+import { getCategories, getPublishedBlogPosts, getPublishedProjects } from '../lib/contentService';
+
+const [posts, projects, categories] = await Promise.all([getPublishedBlogPosts(), getPublishedProjects(), getCategories()]);
+---
+
+<BaseLayout title="Knowledge Graph" description="Interactive map of posts, projects, and categories.">
+  <GraphPage graphData={buildGraphData(posts, projects, categories)} client:load />
+</BaseLayout>

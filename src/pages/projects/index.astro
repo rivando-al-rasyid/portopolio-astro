@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ProjectListPage } from '../../features/projects/ProjectListPage';
+import { getPublishedProjects } from '../../lib/contentService';
+
+const projects = await getPublishedProjects();
+---
+
+<BaseLayout title="Projects" description="Selected projects, case studies, and engineering work.">
+  <ProjectListPage projects={projects} client:load />
+</BaseLayout>
