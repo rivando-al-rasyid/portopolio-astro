@@ -32,3 +32,7 @@ npm run dev
 ```
 
 The frontend fetches public content from Payload REST endpoints such as `/api/blog-posts`, `/api/projects`, `/api/categories`, and `/api/globals/site-settings`.
+
+## Compose removed
+
+This frontend app does not include Compose files. Run it directly with `npm run dev`, or build it with the included Dockerfile from your root/infrastructure Compose setup.
